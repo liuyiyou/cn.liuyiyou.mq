@@ -9,12 +9,6 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.Properties;
 
-/**
- * @author: liuyiyou@yanglaoban.com
- * @date: 2018/10/29
- * @version: V1.0
- * @Copyright: 2018 yanglaoban.com Inc. All rights reserved.
- */
 public class MyKafkaConsumer {
 
     public static void main(String[] args) {
@@ -27,7 +21,7 @@ public class MyKafkaConsumer {
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.IntegerDeserializer");
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer");
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
-        consumer.subscribe(Arrays.asList("foo", "bar", "my-topic"));
+        consumer.subscribe(Arrays.asList("foo", "bar", "my-topic2"));
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(1));
             for (ConsumerRecord<String, String> record : records) {

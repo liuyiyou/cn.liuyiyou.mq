@@ -6,15 +6,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 
 import java.util.Properties;
 
-/**
- * @author: liuyiyou@yanglaoban.com
- * @date: 2018/10/29
- * @version: V1.0
- * @Copyright: 2018 yanglaoban.com Inc. All rights reserved.
- */
 public class MyKafkaProducer {
-
-    private Properties properties = new Properties();
 
     public static void main(String[] args) {
 
@@ -30,7 +22,7 @@ public class MyKafkaProducer {
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         Producer<String, String> producer = new KafkaProducer<>(props);
         for (int i = 0; i < 100; i++){
-            producer.send(new ProducerRecord<>("my-topic", Integer.toString(i), Integer.toString(i)));
+            producer.send(new ProducerRecord<>("my-topic2", Integer.toString(i), Integer.toString(i)));
         }
         producer.close();
     }

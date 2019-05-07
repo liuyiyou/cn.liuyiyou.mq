@@ -8,8 +8,8 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>yiadmin-rbac</name>
-    <description>权限管理系统</description>
+    <name>cn.liuyiyou.mq</name>
+    <description>个人消息使用</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -29,6 +29,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-spring-boot-starter</artifactId>
+            <version>2.0.2</version>
         </dependency>
 
         <dependency>
