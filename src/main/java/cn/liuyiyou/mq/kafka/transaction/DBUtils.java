@@ -11,10 +11,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * @author: liuyiyou@yanglaoban.com
+ * @author: liuyiyou@liuyiyou.cn
  * @date: 2018/10/29
  * @version: V1.0
- * @Copyright: 2018 yanglaoban.com Inc. All rights reserved.
+ * @Copyright: 2018 liuyiyou.cn Inc. All rights reserved.
  */
 public class DBUtils {
 
@@ -25,7 +25,7 @@ public class DBUtils {
     public static Connection getConnection() {
         try {
             System.out.println("init");
-            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true", "root", "123456");
+            connection = DriverManager.getConnection("jdbc:h2:mem:testdb;MODE=MYSQL;DB_CLOSE_DELAY=-1", "sa", "");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -38,9 +38,9 @@ public class DBUtils {
         ResultSet resultSet = null;
         try {
             connection = getConnection();
-            preparedStatement = connection.prepareStatement("select  * from  t_test");
+            preparedStatement = connection.prepareStatement("select  * from  city");
             resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 Object resultSetValue = JdbcUtils.getResultSetValue(resultSet, 1);
                 System.out.println(resultSetValue);
             }

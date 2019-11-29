@@ -26,8 +26,7 @@ import org.apache.rocketmq.remoting.common.RemotingHelper;
 public class Producer {
     public static void main(String[] args) throws MQClientException, InterruptedException {
         DefaultMQProducer producer = new DefaultMQProducer("work_group");
-        producer.setNamesrvAddr("192.168.0.165:9876");
-//        producer.setVipChannelEnabled(false);
+        producer.setNamesrvAddr("192.168.0.165:9876;192.168.0.166:9876");
         producer.start();
         try {
             final byte[] message = "Hello RocketMQ".getBytes(RemotingHelper.DEFAULT_CHARSET);

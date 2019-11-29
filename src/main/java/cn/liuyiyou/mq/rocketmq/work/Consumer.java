@@ -13,14 +13,12 @@ public class Consumer {
 
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("work_group");
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
-        consumer.setNamesrvAddr("192.168.0.165:9876");
+        consumer.setNamesrvAddr("192.168.0.165:9876;192.168.0.166:9876");
         consumer.subscribe("TopicTest-LYY", "*");
         consumer.registerMessageListener((MessageListenerConcurrently) (msgs, context) -> {
             System.out.printf("%s Receive New Messages: %s %n", Thread.currentThread().getName(), msgs);
             return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
         });
-        //https://blog.csdn.net/liyuling52011/article/details/79997843
-//        consumer.setVipChannelEnabled(false);
         consumer.start();
         System.out.printf("Consumer Started.%n");
     }
